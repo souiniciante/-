@@ -1,0 +1,1504 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Para Ariel 🎂</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    overflow:hidden;
+}
+
+/* =========================
+   TELA INICIAL
+========================= */
+
+.inicio{
+    width:100%;
+    height:100vh;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    position:relative;
+    overflow:hidden;
+
+    background:
+        radial-gradient(circle at 20% 20%,#ffffff40 0 3px,transparent 4px),
+        radial-gradient(circle at 80% 30%,#ffffff40 0 4px,transparent 5px),
+        radial-gradient(circle at 40% 80%,#ffffff30 0 3px,transparent 4px),
+        linear-gradient(
+            135deg,
+            #ff758c,
+            #ff7eb3,
+            #c471ed,
+            #6a82fb
+        );
+
+    background-size:auto,auto,auto,400% 400%;
+
+    animation:fundo 12s ease infinite;
+}
+
+@keyframes fundo{
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
+
+}
+
+.inicio::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:350px;
+    height:350px;
+
+    background:#ffffff30;
+
+    border-radius:50%;
+
+    filter:blur(80px);
+
+    top:-100px;
+    left:-100px;
+}
+
+.inicio::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:300px;
+    height:300px;
+
+    background:#ffeb3b40;
+
+    border-radius:50%;
+
+    filter:blur(80px);
+
+    bottom:-100px;
+    right:-80px;
+}
+
+.conteudo{
+
+    position:relative;
+
+    z-index:5;
+
+    padding:25px;
+
+    animation:entrada 1s ease;
+}
+
+@keyframes entrada{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+.bolo{
+
+    font-size:clamp(5rem,25vw,9rem);
+
+    animation:flutuar 3s ease-in-out infinite;
+
+    filter:drop-shadow(
+        0 15px 20px rgba(0,0,0,.2)
+    );
+}
+
+@keyframes flutuar{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-15px);
+    }
+
+}
+
+.titulo{
+
+    color:white;
+
+    font-size:clamp(2.5rem,10vw,5rem);
+
+    font-weight:900;
+
+    text-shadow:
+        0 5px 20px rgba(0,0,0,.25);
+
+    margin:10px 0;
+}
+
+.descricao{
+
+    color:white;
+
+    font-size:clamp(1rem,4vw,1.3rem);
+
+    max-width:500px;
+
+    line-height:1.6;
+
+    margin-bottom:30px;
+}
+
+.comecar{
+
+    border:none;
+
+    padding:16px 45px;
+
+    border-radius:50px;
+
+    background:white;
+
+    color:#ff4f81;
+
+    font-size:1.2rem;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.25);
+
+    transition:.3s;
+}
+
+.comecar:hover{
+
+    transform:
+        translateY(-4px)
+        scale(1.05);
+
+}
+
+.comecar:active{
+
+    transform:scale(.95);
+
+}
+
+
+/* =========================
+   BALÕES
+========================= */
+
+.balao{
+
+    position:absolute;
+
+    font-size:4rem;
+
+    animation:
+        baloes 6s linear infinite;
+
+    opacity:.8;
+}
+
+.b1{
+
+    left:5%;
+    bottom:-100px;
+
+}
+
+.b2{
+
+    left:25%;
+    bottom:-150px;
+
+    animation-delay:2s;
+
+}
+
+.b3{
+
+    right:20%;
+    bottom:-120px;
+
+    animation-delay:4s;
+
+}
+
+.b4{
+
+    right:5%;
+    bottom:-100px;
+
+    animation-delay:1s;
+
+}
+
+@keyframes baloes{
+
+    0%{
+
+        transform:
+            translateY(0)
+            rotate(-5deg);
+
+    }
+
+    100%{
+
+        transform:
+            translateY(-120vh)
+            rotate(10deg);
+
+    }
+
+}
+
+
+/* =========================
+   JOGO
+========================= */
+
+.jogo{
+
+    display:none;
+
+    width:100%;
+
+    min-height:100vh;
+
+    padding:25px;
+
+    text-align:center;
+
+    background:
+
+        radial-gradient(
+            circle at 10% 10%,
+            #ffffff40 0 3px,
+            transparent 4px
+        ),
+
+        radial-gradient(
+            circle at 90% 20%,
+            #ffffff40 0 4px,
+            transparent 5px
+        ),
+
+        linear-gradient(
+            135deg,
+            #ff9a9e,
+            #fad0c4,
+            #fbc2eb
+        );
+}
+
+.jogo.ativo{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+.jogo h1{
+
+    color:white;
+
+    font-size:
+        clamp(2rem,8vw,3.5rem);
+
+    margin-top:20px;
+
+    text-shadow:
+        0 4px 10px #0003;
+}
+
+.subtitulo{
+
+    color:white;
+
+    margin:8px 0 15px;
+
+}
+
+.contador{
+
+    background:white;
+
+    color:#ff4f81;
+
+    padding:10px 20px;
+
+    border-radius:30px;
+
+    font-weight:bold;
+
+    margin-bottom:20px;
+
+}
+
+.tabuleiro{
+
+    width:min(90vw,500px);
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:12px;
+
+}
+
+.carta{
+
+    aspect-ratio:1;
+
+    perspective:800px;
+
+    cursor:pointer;
+
+}
+
+.interna{
+
+    width:100%;
+    height:100%;
+
+    position:relative;
+
+    transition:
+        transform .5s;
+
+    transform-style:preserve-3d;
+
+}
+
+.carta.virada .interna{
+
+    transform:
+        rotateY(180deg);
+
+}
+
+.frente,
+.verso{
+
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    border-radius:18px;
+
+    backface-visibility:hidden;
+
+}
+
+.frente{
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff4f81,
+            #ff758c
+        );
+
+    color:white;
+
+    font-size:2rem;
+
+    box-shadow:
+        0 6px 15px #0003;
+
+}
+
+.verso{
+
+    background:white;
+
+    transform:
+        rotateY(180deg);
+
+    font-size:
+        clamp(2rem,8vw,3rem);
+
+    box-shadow:
+        0 6px 15px #0002;
+
+}
+
+.carta.acertada .verso{
+
+    background:#fff3a6;
+
+}
+
+
+/* =========================
+   MENSAGEM
+========================= */
+
+.mensagem-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+        rgba(30,10,40,.55);
+
+    backdrop-filter:blur(5px);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.4s;
+
+    z-index:50;
+
+    padding:25px;
+
+}
+
+.mensagem-overlay.mostrar{
+
+    opacity:1;
+
+    pointer-events:auto;
+
+}
+
+.caixa-mensagem{
+
+    width:min(90%,500px);
+
+    background:white;
+
+    border-radius:28px;
+
+    padding:35px 25px;
+
+    text-align:center;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.3);
+
+    transform:
+        scale(.8)
+        translateY(30px);
+
+    transition:.4s;
+
+}
+
+.mensagem-overlay.mostrar
+.caixa-mensagem{
+
+    transform:
+        scale(1)
+        translateY(0);
+
+}
+
+.icone-mensagem{
+
+    font-size:4rem;
+
+    margin-bottom:15px;
+
+}
+
+.caixa-mensagem h2{
+
+    color:#ff4f81;
+
+    font-size:1.8rem;
+
+    margin-bottom:15px;
+
+}
+
+.caixa-mensagem p{
+
+    color:#555;
+
+    font-size:1.1rem;
+
+    line-height:1.6;
+
+    margin-bottom:25px;
+
+}
+
+.continuar{
+
+    border:none;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff4f81,
+            #c471ed
+        );
+
+    color:white;
+
+    padding:13px 30px;
+
+    border-radius:30px;
+
+    font-size:1rem;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.continuar:hover{
+
+    transform:scale(1.05);
+
+}
+
+
+/* =========================
+   TELA FINAL
+========================= */
+
+.final{
+
+    display:none;
+
+    min-height:100vh;
+
+    width:100%;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+    text-align:center;
+
+    padding:25px;
+
+    background:
+
+        radial-gradient(
+            circle at 20% 20%,
+            #ffffff35 0 4px,
+            transparent 5px
+        ),
+
+        radial-gradient(
+            circle at 80% 30%,
+            #ffffff35 0 4px,
+            transparent 5px
+        ),
+
+        linear-gradient(
+            135deg,
+            #ff758c,
+            #ff7eb3,
+            #c471ed,
+            #6a82fb
+        );
+
+    background-size:
+        auto,
+        auto,
+        400% 400%;
+
+    animation:
+        fundo 12s ease infinite;
+
+    color:white;
+
+}
+
+.final.ativo{
+
+    display:flex;
+
+}
+
+.final .bolo{
+
+    font-size:
+        clamp(5rem,25vw,9rem);
+
+}
+
+.final h2{
+
+    font-size:
+        clamp(2.5rem,10vw,5rem);
+
+    margin:10px 0;
+
+    text-shadow:
+        0 5px 15px rgba(0,0,0,.2);
+
+}
+
+.final p{
+
+    max-width:650px;
+
+    font-size:
+        clamp(1.05rem,4vw,1.3rem);
+
+    line-height:1.7;
+
+}
+
+
+/* =========================
+   CONFETES
+========================= */
+
+.confete{
+
+    position:fixed;
+
+    top:-20px;
+
+    width:10px;
+
+    height:18px;
+
+    z-index:100;
+
+    animation:
+        cair linear forwards;
+
+}
+
+@keyframes cair{
+
+    to{
+
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
+    }
+
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media(max-width:400px){
+
+    .tabuleiro{
+
+        gap:8px;
+
+    }
+
+    .frente,
+    .verso{
+
+        border-radius:12px;
+
+    }
+
+    .caixa-mensagem{
+
+        padding:
+            28px 20px;
+
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- =====================================================
+     TELA INICIAL
+===================================================== -->
+
+<section
+    class="inicio"
+    id="inicio"
+>
+
+    <div class="balao b1">
+        🎈
+    </div>
+
+    <div class="balao b2">
+        🎈
+    </div>
+
+    <div class="balao b3">
+        🎈
+    </div>
+
+    <div class="balao b4">
+        🎈
+    </div>
+
+
+    <div class="conteudo">
+
+        <div class="bolo">
+            🎂
+        </div>
+
+
+        <h1 class="titulo">
+            Uma surpresa!
+        </h1>
+
+
+        <p class="descricao">
+
+            Ariel, prepare-se para
+            uma pequena surpresa de aniversário.
+
+            <br>
+
+            Primeiro você precisa encontrar
+            todos os pares! 🎁
+
+        </p>
+
+
+        <button
+            class="comecar"
+            onclick="comecarJogo()"
+        >
+
+            Começar 🎉
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     JOGO
+===================================================== -->
+
+<section
+    class="jogo"
+    id="jogo"
+>
+
+    <h1>
+        🎂 Jogo da Memória
+    </h1>
+
+
+    <p class="subtitulo">
+        Encontre todos os pares, Ariel!
+    </p>
+
+
+    <div class="contador">
+
+        Pares encontrados:
+
+        <span id="contador">
+            0
+        </span>
+
+        / 8
+
+    </div>
+
+
+    <div
+        class="tabuleiro"
+        id="tabuleiro"
+    ></div>
+
+</section>
+
+
+<!-- =====================================================
+     MENSAGEM
+===================================================== -->
+
+<div
+    class="mensagem-overlay"
+    id="mensagemOverlay"
+>
+
+    <div class="caixa-mensagem">
+
+
+        <div
+            class="icone-mensagem"
+            id="iconeMensagem"
+        >
+
+            🎉
+
+        </div>
+
+
+        <h2 id="tituloMensagem">
+            Par encontrado!
+        </h2>
+
+
+        <p id="textoMensagem">
+            Muito bem!
+        </p>
+
+
+        <button
+            class="continuar"
+            onclick="fecharMensagem()"
+        >
+
+            Continuar 💖
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     TELA FINAL
+===================================================== -->
+
+<section
+    class="final"
+    id="final"
+>
+
+    <div class="bolo">
+        🎂
+    </div>
+
+
+    <h2>
+        Feliz Aniversário, Ariel! 🎉
+    </h2>
+
+
+    <p>
+
+        Espero que seu dia seja muito
+        especial, cheio de alegria,
+        diversão e momentos inesquecíveis.
+
+        <br><br>
+
+        Que esse novo ciclo seja cheio
+        de coisas boas, novas conquistas
+        e muitos motivos para sorrir. 💖
+
+        <br><br>
+
+        <strong>
+            Feliz aniversário! 🥳🎈
+        </strong>
+
+    </p>
+
+</section>
+
+
+<script>
+
+
+/* =====================================================
+   CARTAS
+===================================================== */
+
+const emojis = [
+
+    "🎂",
+    "🎁",
+    "🎈",
+    "🥳",
+    "🍰",
+    "🎉",
+    "💖",
+    "⭐"
+
+];
+
+
+let cartas = [
+    ...emojis,
+    ...emojis
+];
+
+
+let primeira = null;
+
+let segunda = null;
+
+let bloqueado = false;
+
+let pares = 0;
+
+let mensagemAtual = 0;
+
+
+/* =====================================================
+   MENSAGENS PARA ARIEL
+===================================================== */
+
+const mensagens = [
+
+    {
+
+        icone:"🎂",
+
+        titulo:"Essa surpresa é para você!",
+
+        texto:
+        "Ariel, essa pequena surpresa foi feita especialmente para você."
+
+    },
+
+    {
+
+        icone:"💖",
+
+        titulo:"Feliz aniversário!",
+
+        texto:
+        "Espero que seu aniversário seja incrível e cheio de momentos felizes."
+
+    },
+
+    {
+
+        icone:"🫶",
+
+        titulo:"Você é especial!",
+
+        texto:
+        "Que nunca faltem pessoas especiais ao seu lado para compartilhar os bons momentos."
+
+    },
+
+    {
+
+        icone:"🌷",
+
+        titulo:"Um novo ciclo!",
+
+        texto:
+        "Que essa nova fase da sua vida venha cheia de coisas boas e muitas conquistas."
+
+    },
+
+    {
+
+        icone:"✨",
+
+        titulo:"Continue brilhando!",
+
+        texto:
+        "Que você continue sendo essa pessoa especial e tenha muitos motivos para sorrir."
+
+    },
+
+    {
+
+        icone:"🎁",
+
+        titulo:"Mais uma surpresa!",
+
+        texto:
+        "Essa pequena homenagem foi preparada com muito carinho para você."
+
+    },
+
+    {
+
+        icone:"🥰",
+
+        titulo:"Aproveite muito seu dia!",
+
+        texto:
+        "Espero que você aproveite cada momento desse dia e crie muitas lembranças boas."
+
+    },
+
+    {
+
+        icone:"🎉",
+
+        titulo:"Você conseguiu!",
+
+        texto:
+        "Todos os pares foram encontrados! Agora chegou a hora da verdadeira surpresa."
+
+    }
+
+];
+
+
+/* =====================================================
+   COMEÇAR
+===================================================== */
+
+function comecarJogo(){
+
+    document
+        .getElementById("inicio")
+        .style.display="none";
+
+
+    document
+        .getElementById("jogo")
+        .classList.add("ativo");
+
+
+    criarJogo();
+
+}
+
+
+/* =====================================================
+   EMBARALHAR
+===================================================== */
+
+function embaralhar(){
+
+    cartas.sort(
+        () =>
+            Math.random()-0.5
+    );
+
+}
+
+
+/* =====================================================
+   CRIAR JOGO
+===================================================== */
+
+function criarJogo(){
+
+    const tabuleiro =
+        document.getElementById(
+            "tabuleiro"
+        );
+
+
+    tabuleiro.innerHTML="";
+
+
+    embaralhar();
+
+
+    cartas.forEach(
+        emoji => {
+
+
+            const carta =
+                document.createElement(
+                    "div"
+                );
+
+
+            carta.className="carta";
+
+
+            carta.dataset.valor=
+                emoji;
+
+
+            carta.innerHTML=`
+
+                <div class="interna">
+
+                    <div class="frente">
+                        🎁
+                    </div>
+
+                    <div class="verso">
+                        ${emoji}
+                    </div>
+
+                </div>
+
+            `;
+
+
+            carta.onclick=
+                () => virar(carta);
+
+
+            tabuleiro.appendChild(
+                carta
+            );
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   VIRAR CARTA
+===================================================== */
+
+function virar(carta){
+
+    if(
+
+        bloqueado ||
+
+        carta===primeira ||
+
+        carta.classList.contains(
+            "acertada"
+        )
+
+    ){
+
+        return;
+
+    }
+
+
+    carta.classList.add(
+        "virada"
+    );
+
+
+    if(!primeira){
+
+        primeira=carta;
+
+        return;
+
+    }
+
+
+    segunda=carta;
+
+    verificar();
+
+}
+
+
+/* =====================================================
+   VERIFICAR
+===================================================== */
+
+function verificar(){
+
+    const acertou =
+
+        primeira.dataset.valor ===
+        segunda.dataset.valor;
+
+
+    if(acertou){
+
+        primeira.classList.add(
+            "acertada"
+        );
+
+        segunda.classList.add(
+            "acertada"
+        );
+
+
+        pares++;
+
+
+        document
+            .getElementById(
+                "contador"
+            )
+            .textContent=pares;
+
+
+        primeira=null;
+
+        segunda=null;
+
+
+        mensagemAtual=pares-1;
+
+
+        mostrarMensagem();
+
+    }
+
+    else{
+
+        bloqueado=true;
+
+
+        setTimeout(
+            () => {
+
+                primeira
+                    .classList
+                    .remove(
+                        "virada"
+                    );
+
+
+                segunda
+                    .classList
+                    .remove(
+                        "virada"
+                    );
+
+
+                primeira=null;
+
+                segunda=null;
+
+                bloqueado=false;
+
+            },
+            900
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   MOSTRAR MENSAGEM
+===================================================== */
+
+function mostrarMensagem(){
+
+    const mensagem =
+        mensagens[
+            mensagemAtual
+        ];
+
+
+    document
+        .getElementById(
+            "iconeMensagem"
+        )
+        .textContent=
+            mensagem.icone;
+
+
+    document
+        .getElementById(
+            "tituloMensagem"
+        )
+        .textContent=
+            mensagem.titulo;
+
+
+    document
+        .getElementById(
+            "textoMensagem"
+        )
+        .textContent=
+            mensagem.texto;
+
+
+    document
+        .getElementById(
+            "mensagemOverlay"
+        )
+        .classList.add(
+            "mostrar"
+        );
+
+}
+
+
+/* =====================================================
+   FECHAR MENSAGEM
+===================================================== */
+
+function fecharMensagem(){
+
+    document
+        .getElementById(
+            "mensagemOverlay"
+        )
+        .classList.remove(
+            "mostrar"
+        );
+
+
+    if(pares===8){
+
+        setTimeout(
+            finalizar,
+            500
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   FINAL
+===================================================== */
+
+function finalizar(){
+
+    document
+        .getElementById(
+            "jogo"
+        )
+        .style.display=
+            "none";
+
+
+    document
+        .getElementById(
+            "final"
+        )
+        .classList.add(
+            "ativo"
+        );
+
+
+    criarConfetes();
+
+}
+
+
+/* =====================================================
+   CONFETES
+===================================================== */
+
+function criarConfetes(){
+
+    for(
+        let i=0;
+        i<120;
+        i++
+    ){
+
+        const confete =
+            document.createElement(
+                "div"
+            );
+
+
+        confete.className=
+            "confete";
+
+
+        confete.style.left=
+            Math.random()*100+
+            "vw";
+
+
+        confete.style.background=
+            `hsl(
+                ${Math.random()*360},
+                90%,
+                60%
+            )`;
+
+
+        confete.style.animationDuration=
+            (
+                2+
+                Math.random()*4
+            )+
+            "s";
+
+
+        confete.style.animationDelay=
+            Math.random()*2+
+            "s";
+
+
+        document.body.appendChild(
+            confete
+        );
+
+
+        setTimeout(
+            () => confete.remove(),
+            7000
+        );
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
